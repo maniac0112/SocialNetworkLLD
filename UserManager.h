@@ -14,6 +14,8 @@ public:
 
     void deleteUser(const std::string& username);
 
+    bool userExists(const std::string& username);
+
 private:
     UserManager() = default; 
     static UserManager* instance_; 

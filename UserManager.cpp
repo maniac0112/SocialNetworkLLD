@@ -16,8 +16,12 @@ UserManager* UserManager::getUserManagerInstance(){
     return instance_;
 }
 
+bool UserManager::userExists(const std::string& username){
+    return !(userDb_.find(username) == userDb_.end());
+}
+
 void UserManager::registerUser(const std::string& username, const std::string& password){
-    if (userDb_.find(username) != userDb_.end()){
+    if (userExists(username)){
         std::cout<<" User - "<<username<<" already exists! \n";
         return ; 
     }
@@ -28,7 +32,7 @@ void UserManager::registerUser(const std::string& username, const std::string& p
 }
 
 void UserManager::deleteUser(const std::string& username){
-    if (userDb_.find(username) == userDb_.end()){
+    if (!userExists(username)){
         std::cout<<" Can delete user - "<<username<<". No such user exists! \n";
         return ; 
     }

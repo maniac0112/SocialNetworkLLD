@@ -13,3 +13,7 @@ std::string Session::getUser(){
 TimeStamp Session::getExpiry(){
     return expiry_; 
 }
+
+UUID Session::getSessionID(){
+    return sessionId_;
+}

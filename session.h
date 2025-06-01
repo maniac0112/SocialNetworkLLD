@@ -14,7 +14,10 @@ public:
         return username_;
     }
 
+    UUID Session::getSessionID();
+
 private: 
+
     UUID sessionId_;
     std::string username_; 
     TimeStamp expiry_;   
